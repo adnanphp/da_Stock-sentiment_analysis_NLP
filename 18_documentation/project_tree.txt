@@ -1,0 +1,229 @@
+project_root/
+│
+├── 📂 1_data_collection/
+│   ├── data_collector.py
+│   ├── check_reddit_data.py
+│   ├── emergency_data_fixer.py
+│   └── multi_format_parser.py
+│
+├── 📂 2_data_processing/
+│   ├── 📂 datetime_handling/
+│   │   ├── datetime_config.py
+│   │   ├── datetime_pipeline.py
+│   │   ├── datetime_standardizer.py
+│   │   ├── time_feature_creator.py
+│   │   └── timezone_normalizer.py
+│   │
+│   ├── 📂 data_types/
+│   │   ├── data_type_converter.py
+│   │   ├── data_type_pipeline.py
+│   │   ├── manual_type_mapper.py
+│   │   └── type_conversion_config.py
+│   │
+│   ├── 📂 missing_values/
+│   │   ├── bulletproof_missing_value_analyzer.py
+│   │   ├── missing_value_analyzer.py
+│   │   ├── missing_value_imputer.py
+│   │   ├── missing_value_visualizer.py
+│   │   └── simple_missing_analyzer.py
+│   │
+│   ├── 📂 text_processing/
+│   │   ├── text_config.py
+│   │   ├── text_feature_extractor.py
+│   │   ├── text_pipeline.py
+│   │   ├── text_preprocessor.py
+│   │   ├── news_preprocessor.py
+│   │   └── reddit_cleaner.py
+│   │
+│   └── 📂 data_quality/
+│       ├── data_profiler.py
+│       ├── data_quality_checker_fixed.py
+│       ├── data_quality_checker.py
+│       └── verify_fixed_data.py
+│
+├── 📂 3_feature_engineering/
+│   ├── feature_config.py
+│   ├── feature_engineer.py
+│   ├── feature_engineer_old.py
+│   ├── technical_indicators.py
+│   ├── technical_indicators_old.py
+│   ├── sentiment_preparer.py
+│   ├── feature_pipeline.py
+│   └── run_feature_engineering.py
+│
+├── 📂 4_outlier_management/
+│   ├── fixed_outlier_config.py
+│   ├── fixed_outlier_manager.py
+│   ├── fixed_outlier_treatment.py
+│   ├── outlier_config.py
+│   ├── outlier_detector.py
+│   ├── outlier_manager.py
+│   ├── outlier_treatment.py
+│   └── outlier_pipeline.py
+│
+├── 📂 5_data_scaling_normalization/
+│   ├── data_scaler.py
+│   ├── normalization_pipeline.py
+│   ├── scaler_selector.py
+│   ├── scale_inverter.py
+│   └── scaling_config.py
+│
+├── 📂 6_integration_pipeline/
+│   ├── z_integration_data_integrator.py
+│   ├── z_integration_data_integrator_v2_fixed_final.py
+│   ├── z_integration_data_integrator_v3_fixed_final.py
+│   ├── z_integration_data_integrator_v4_fixed_final.py
+│   ├── z_integration_data_integrator_v5_fixed_final.py
+│   ├── zz_final_integration_fix.py
+│   ├── zzz_create_final_integrated_dataset.py
+│   ├── zzzz_integrate_stock_news_only.py
+│   └── integrated_interpretation.py
+│
+├── 📂 7_model_training/
+│   ├── 📂 core_training/
+│   │   ├── fixed_robust_training.py
+│   │   ├── robust_model_training.py
+│   │   ├── enhanced_training.py
+│   │   ├── fixed_enhanced_training.py
+│   │   ├── final_fixed_enhanced_training.py
+│   │   └── model_training_pipeline.py
+│   │
+│   ├── 📂 deep_learning/
+│   │   ├── pca_deep_learning_pipeline_v1.py
+│   │   ├── pca_enhanced_modeling_pipeline_fixed_v1.py
+│   │   ├── pca_enhanced_modeling_pipeline_v1.py
+│   │   ├── pca-deep_learning_fixed_v2.py
+│   │   └── pca-deep_learning_fixed_v3_visual.py
+│   │
+│   ├── 📂 pca_analysis/
+│   │   ├── PCA_find_and_analyze_dataset.py
+│   │   ├── pca_modeling_pipeline_pcav1.py
+│   │   ├── pca_tsne_analysis_integrated_simple_20251202_213953.py
+│   │   └── pca_tsne_analysis_integrated_simple_20251202_213953v2_fixed.py
+│   │
+│   └── 📂 classification_models/
+│       ├── zzz_train_classification_models.py
+│       ├── zzzzzz_classification_stock_news_experiment_fixed.py
+│       ├── z_nogood_classification_stock_news_experiment_full.py
+│       └── z_no-need_classification_stock_news_experiment.py
+│
+├── 📂 8_model_evaluation/
+│   ├── final_working_metrics.py
+│   ├── enhanced_metrics_with_plots.py
+│   ├── fixed_enhanced_metrics_with_plots.py
+│   ├── final_perfect_metrics_with_plots.py
+│   ├── regression_to_classification_metrics.py
+│   ├── fixed_regression_to_classification_metrics.py
+│   ├── check_data_leakage.py
+│   └── realistic_verification.py
+│
+├── 📂 9_backtesting_trading/
+│   ├── backtesting_framework.py
+│   ├── fixed_live_trading_engine.py
+│   ├── live_trading_engine.py
+│   ├── quick_backtest.py
+│   ├── quick_test.py
+│   └── balanced_production.py
+│
+├── 📂 10_production_deployment/
+│   ├── 📂 production_core/
+│   │   ├── deploy_production.py
+│   │   ├── production_deployment.py
+│   │   ├── production_predictor.py
+│   │   ├── fixed_production_predictor.py
+│   │   ├── enhanced_production_manager.py
+│   │   └── performance_monitor.py
+│   │
+│   ├── 📂 live_trading/
+│   │   ├── final_live_trading.py
+│   │   ├── production_live_trading.py
+│   │   ├── working_live_trading.py
+│   │   └── final_working_system.py
+│   │
+│   └── 📂 trading_strategies/
+│       ├── run_fixed_system.py
+│       ├── run_production_system.py
+│       └── fixed_performance_monitor.py
+│
+├── 📂 11_visualization_analysis/
+│   ├── 📂 dashboards/
+│   │   ├── enhanced_dashboard.py
+│   │   ├── model_dashboard.py
+│   │   └── model_interpretation.py
+│   │
+│   ├── 📂 visualizations/
+│   │   ├── visualization.py
+│   │   ├── visualization_fixed.py
+│   │   ├── visualization_advance.py
+│   │   ├── visualization_advance_fixed.py
+│   │   ├── visualization_advance_more.py
+│   │   └── visualization_advance_more_fixed.py
+│   │
+│   └── 📂 advanced_analytics/
+│       ├── advanced_analytics_integration.py
+│       ├── comprehensive_analysis.py
+│       └── zzzz_comprehensive_analysis.py
+│
+├── 📂 12_config_utilities/
+│   ├── config.py
+│   ├── feature_config.py
+│   ├── datetime_config.py
+│   ├── scaling_config.py
+│   ├── text_config.py
+│   ├── type_conversion_config.py
+│   └── fix_specific_columns.py
+│
+├── 📂 13_experiments_tests/
+│   ├── 📂 clean_experiment/
+│   ├── 📂 classification_results/
+│   ├── 📂 integration_experiments/
+│   ├── 📂 pca_experiments/
+│   └── quick_test.py
+│
+├── 📂 14_data_storage/
+│   ├── 📂 raw_data/
+│   ├── 📂 cleaned_data/
+│   ├── 📂 processed_data/
+│   ├── 📂 feature_engineered_data/
+│   ├── 📂 normalized_data/
+│   ├── 📂 outlier_treated_data/
+│   └── 📂 integrated_datasets/
+│
+├── 📂 15_model_storage/
+│   ├── 📂 trained_models/
+│   ├── 📂 enhanced_models/
+│   ├── 📂 final_enhanced_models/
+│   ├── 📂 robust_models/
+│   ├── 📂 dl_models/
+│   └── 📂 fitted_scalers/
+│
+├── 📂 16_reports_results/
+│   ├── 📂 classification_reports/
+│   ├── 📂 performance_reports/
+│   ├── 📂 quality_reports/
+│   ├── 📂 visualization_reports/
+│   ├── 📂 final_reports/
+│   └── 📂 experiment_summaries/
+│
+├── 📂 17_scripts_executables/
+│   ├── main.py
+│   ├── run_data_quality_assessment.py
+│   ├── run_missing_values_pipeline.py
+│   ├── run_feature_engineering.py
+│   ├── zz-run-python-files/
+│   └── a-no-touch/
+│
+├── 📂 18_documentation/
+│   ├── directory_structure.txt
+│   ├── project_tree.txt
+│   ├── aaaa_my-project_tree.txt
+│   ├── aa-all-files-in-order.txt
+│   ├── aaa_prj.txt
+│   ├── aa_Sources_directories.txt
+│   └── requirements.txt
+│
+└── 📂 19_temp_archive/
+    ├── 📂 old_versions/
+    ├── 📂 unused_code/
+    ├── 📂 test_runs/
+    └── 📂 debug_logs/

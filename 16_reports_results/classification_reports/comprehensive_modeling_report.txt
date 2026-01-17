@@ -1,0 +1,134 @@
+================================================================================
+COMPREHENSIVE MODELING REPORT
+================================================================================
+
+Date: 2026-01-17 13:03:47
+PCA Components used: 35
+Prediction tasks: 3
+
+
+============================================================
+TASK: PRICE_DIRECTION
+============================================================
+
+Top 5 Models by Accuracy:
+----------------------------------------
+1. LightGBM:
+   Accuracy: 0.5659
+   Precision (weighted): 0.5637
+   Recall (weighted): 0.5659
+   F1 (weighted): 0.5585
+   ROC-AUC: 0.5202
+   CV Mean ± Std: 0.5351 ± 0.0326
+
+2. Gradient Boosting:
+   Accuracy: 0.5604
+   Precision (weighted): 0.5587
+   Recall (weighted): 0.5604
+   F1 (weighted): 0.5585
+   ROC-AUC: 0.5512
+   CV Mean ± Std: 0.5117 ± 0.0155
+
+3. Random Forest:
+   Accuracy: 0.5549
+   Precision (weighted): 0.5527
+   Recall (weighted): 0.5549
+   F1 (weighted): 0.5518
+   ROC-AUC: 0.5549
+   CV Mean ± Std: 0.5598 ± 0.0152
+
+4. K-Nearest Neighbors:
+   Accuracy: 0.5549
+   Precision (weighted): 0.5542
+   Recall (weighted): 0.5549
+   F1 (weighted): 0.5544
+   ROC-AUC: 0.5531
+   CV Mean ± Std: 0.5090 ± 0.0379
+
+5. Support Vector Machine:
+   Accuracy: 0.5549
+   Precision (weighted): 0.5559
+   Recall (weighted): 0.5549
+   F1 (weighted): 0.5215
+   ROC-AUC: 0.5428
+   CV Mean ± Std: 0.5420 ± 0.0224
+
+
+============================================================
+TASK: NEXT_DAY_RETURN
+============================================================
+
+Top 5 Models by R² Score:
+----------------------------------------
+1. Lasso Regression:
+   R²: -0.0155
+   RMSE: 0.038910
+   MAE: 0.024052
+   CV Mean ± Std: -0.0022 ± 0.0027
+
+2. ElasticNet:
+   R²: -0.0155
+   RMSE: 0.038910
+   MAE: 0.024052
+   CV Mean ± Std: -0.0022 ± 0.0027
+
+3. Random Forest Regressor:
+   R²: -0.1309
+   RMSE: 0.041063
+   MAE: 0.025738
+   CV Mean ± Std: -0.0423 ± 0.1748
+
+4. LightGBM Regressor:
+   R²: -0.1560
+   RMSE: 0.041515
+   MAE: 0.028277
+   CV Mean ± Std: -0.1294 ± 0.1103
+
+5. K-Neighbors Regressor:
+   R²: -0.2006
+   RMSE: 0.042308
+   MAE: 0.025860
+   CV Mean ± Std: -0.1660 ± 0.1602
+
+
+============================================================
+TASK: TICKER
+============================================================
+
+Top 5 Models by Accuracy:
+----------------------------------------
+1. Logistic Regression:
+   Accuracy: 1.0000
+   Precision (weighted): 1.0000
+   Recall (weighted): 1.0000
+   F1 (weighted): 1.0000
+   CV Mean ± Std: 0.9986 ± 0.0027
+
+2. Support Vector Machine:
+   Accuracy: 1.0000
+   Precision (weighted): 1.0000
+   Recall (weighted): 1.0000
+   F1 (weighted): 1.0000
+   CV Mean ± Std: 0.9931 ± 0.0043
+
+3. MLP Neural Network:
+   Accuracy: 1.0000
+   Precision (weighted): 1.0000
+   Recall (weighted): 1.0000
+   F1 (weighted): 1.0000
+   CV Mean ± Std: 0.9959 ± 0.0055
+
+4. Extra Trees:
+   Accuracy: 1.0000
+   Precision (weighted): 1.0000
+   Recall (weighted): 1.0000
+   F1 (weighted): 1.0000
+   CV Mean ± Std: 0.9959 ± 0.0055
+
+5. SGD Classifier:
+   Accuracy: 1.0000
+   Precision (weighted): 1.0000
+   Recall (weighted): 1.0000
+   F1 (weighted): 1.0000
+   CV Mean ± Std: 0.9945 ± 0.0051
+

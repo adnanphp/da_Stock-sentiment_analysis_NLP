@@ -1,0 +1,4 @@
+2025-11-07 22:18:57,351 - ProductionTrading - ERROR - Production cycle 2 failed: float division by zero
+2025-11-07 22:27:29,190 - ProductionTrading - ERROR - Production cycle 3 failed: float division by zero
+2025-11-07 22:28:09,195 - ProductionTrading - ERROR - Failed to save production state: Object of type datetime is not JSON serializable
+2025-11-08 09:48:52,534 - ProductionTrading - ERROR - Production cycle 2 failed: float division by zero

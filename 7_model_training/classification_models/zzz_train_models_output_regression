@@ -1,0 +1,138 @@
+adnan@adnan-X515EA:~/.../1E-step08/1D-step09-par03$ python3 zzztrain_models_final.py
+================================================================================
+MODEL TRAINING ON INTEGRATED DATASET
+================================================================================
+📂 Dataset: (906, 2712)
+   Tickers: ['AAPL', 'GOOGL', 'TSLA']
+   Date range: 2024-09-30 to 2025-10-02
+
+============================================================
+TRAINING MODELS FOR: AAPL
+============================================================
+   Records: 302
+   Features:
+     • Stock-only: 2671
+     • External: 30
+     • Integrated: 2701
+     • External features available!
+
+   📊 Linear Regression:
+     Stocks-only:  MSE=0.047584, MAE=0.166483, R²=-47.3224
+     Integrated:   MSE=0.052727, MAE=0.180657, R²=-53.9028
+     Improvement:  MSE=-10.8%, R²=-13.9%
+
+   📊 Ridge Regression:
+     Stocks-only:  MSE=0.019332, MAE=0.112242, R²=-14.9525
+     Integrated:   MSE=0.358299, MAE=0.270220, R²=-455.6798
+     Improvement:  MSE=-1753.4%, R²=-2947.5%
+
+   📊 Random Forest:
+     Stocks-only:  MSE=0.002425, MAE=0.033979, R²=-0.9454
+     Integrated:   MSE=0.001873, MAE=0.029136, R²=-0.5324
+     Improvement:  MSE=+22.8%, R²=+43.7%
+
+   📊 Gradient Boosting:
+     Stocks-only:  MSE=0.002198, MAE=0.032226, R²=-0.7695
+     Integrated:   MSE=0.001386, MAE=0.023047, R²=-0.1448
+     Improvement:  MSE=+36.9%, R²=+81.2%
+
+============================================================
+TRAINING MODELS FOR: GOOGL
+============================================================
+   Records: 302
+   Features:
+     • Stock-only: 2671
+     • External: 30
+     • Integrated: 2701
+     • External features available!
+
+   📊 Linear Regression:
+     Stocks-only:  MSE=0.084151, MAE=0.216899, R²=-109.9072
+     Integrated:   MSE=0.074515, MAE=0.198089, R²=-95.7510
+     Improvement:  MSE=+11.5%, R²=+12.9%
+
+   📊 Ridge Regression:
+     Stocks-only:  MSE=0.024363, MAE=0.108646, R²=-23.9193
+     Integrated:   MSE=0.177741, MAE=0.224703, R²=-258.7360
+     Improvement:  MSE=-629.6%, R²=-981.7%
+
+   📊 Random Forest:
+     Stocks-only:  MSE=0.001237, MAE=0.026514, R²=-0.3296
+     Integrated:   MSE=0.001243, MAE=0.026341, R²=-0.3439
+     Improvement:  MSE=-0.5%, R²=-4.3%
+
+   📊 Gradient Boosting:
+     Stocks-only:  MSE=0.001153, MAE=0.025338, R²=-0.2355
+     Integrated:   MSE=0.001162, MAE=0.025347, R²=-0.2614
+     Improvement:  MSE=-0.7%, R²=-11.0%
+
+============================================================
+TRAINING MODELS FOR: TSLA
+============================================================
+   Records: 302
+   Features:
+     • Stock-only: 2671
+     • External: 30
+     • Integrated: 2701
+     • External features available!
+
+   📊 Linear Regression:
+     Stocks-only:  MSE=0.105848, MAE=0.244804, R²=-39.9385
+     Integrated:   MSE=0.134171, MAE=0.271612, R²=-60.6039
+     Improvement:  MSE=-26.8%, R²=-51.7%
+
+   📊 Ridge Regression:
+     Stocks-only:  MSE=0.069965, MAE=0.183278, R²=-23.6346
+     Integrated:   MSE=0.112766, MAE=0.230889, R²=-50.4475
+     Improvement:  MSE=-61.2%, R²=-113.4%
+
+   📊 Random Forest:
+     Stocks-only:  MSE=0.003233, MAE=0.042826, R²=-0.0963
+     Integrated:   MSE=0.003312, MAE=0.043613, R²=-0.1353
+     Improvement:  MSE=-2.5%, R²=-40.4%
+
+   📊 Gradient Boosting:
+     Stocks-only:  MSE=0.004033, MAE=0.047161, R²=-0.3753
+     Integrated:   MSE=0.003896, MAE=0.046618, R²=-0.3459
+     Improvement:  MSE=+3.4%, R²=+7.8%
+
+================================================================================
+MODEL COMPARISON SUMMARY
+================================================================================
+
+📄 Results saved to: ./model_results/model_comparison_20251202_222402.csv
+
+📊 CREATING VISUALIZATIONS...
+   📈 Visualization saved to: ./model_results/model_comparison.png
+
+🏆 BEST PERFORMING MODELS
+============================================================
+
+   AAPL:
+     • Best Integrated Model: Gradient Boosting
+       MSE: 0.001386, R²: -0.1448
+     • Best Stocks-only Model: Gradient Boosting
+       MSE: 0.002198, R²: -0.7695
+     ✅ Integration improved MSE by +36.9%
+
+   GOOGL:
+     • Best Integrated Model: Gradient Boosting
+       MSE: 0.001162, R²: -0.2614
+     • Best Stocks-only Model: Gradient Boosting
+       MSE: 0.001153, R²: -0.2355
+     ⚠️ Integration did not improve MSE
+
+   TSLA:
+     • Best Integrated Model: Random Forest
+       MSE: 0.003312, R²: -0.1353
+     • Best Stocks-only Model: Random Forest
+       MSE: 0.003233, R²: -0.0963
+     ⚠️ Integration did not improve MSE
+
+============================================================
+OVERALL BEST MODEL
+
+   🥇 Gradient Boosting:
+     • Average R²: -0.2507
+     • Average MSE: 0.002148
+     • Average Improvement: +13.2%

@@ -1,0 +1,92 @@
+================================================================================
+CLEAN EXPERIMENT: STOCK vs STOCK+NEWS PREDICTION
+================================================================================
+
+EXPERIMENT DESIGN:
+----------------------------------------
+• Comparison: Stocks-only vs Stocks+News models
+• Tickers: AAPL, GOOGL, TSLA
+• Models: Logistic Regression, Random Forest, Gradient Boosting
+• Target: Predict next day price direction (UP/DOWN)
+• Validation: Time-series cross-validation (3 folds)
+
+DATA SUMMARY:
+----------------------------------------
+
+AAPL:
+  • News data available: Yes
+  • Records with news: 4
+
+GOOGL:
+  • News data available: Yes
+  • Records with news: 2
+
+TSLA:
+  • News data available: Yes
+  • Records with news: 3
+
+
+RESULTS SUMMARY:
+----------------------------------------
+Average Stocks-only Accuracy:    0.517
+Average Stocks+News Accuracy:   0.523
+Average Improvement:            +0.6%
+
+Models improved with news data: 5/9
+
+DETAILED RESULTS BY TICKER:
+----------------------------------------
+
+AAPL:
+  Logistic Regression:
+    • Stocks-only:    Acc=0.542, F1=0.586
+    • Stocks+News:    Acc=0.542, F1=0.586
+    • Improvement:    Acc=+0.0%, F1=+0.0%
+  Random Forest:
+    • Stocks-only:    Acc=0.498, F1=0.537
+    • Stocks+News:    Acc=0.516, F1=0.573
+    • Improvement:    Acc=+1.8%, F1=+3.6%
+  Gradient Boosting:
+    • Stocks-only:    Acc=0.516, F1=0.498
+    • Stocks+News:    Acc=0.520, F1=0.504
+    • Improvement:    Acc=+0.4%, F1=+0.6%
+
+GOOGL:
+  Logistic Regression:
+    • Stocks-only:    Acc=0.480, F1=0.380
+    • Stocks+News:    Acc=0.480, F1=0.380
+    • Improvement:    Acc=+0.0%, F1=+0.0%
+  Random Forest:
+    • Stocks-only:    Acc=0.493, F1=0.414
+    • Stocks+News:    Acc=0.507, F1=0.430
+    • Improvement:    Acc=+1.3%, F1=+1.7%
+  Gradient Boosting:
+    • Stocks-only:    Acc=0.569, F1=0.555
+    • Stocks+News:    Acc=0.569, F1=0.567
+    • Improvement:    Acc=+0.0%, F1=+1.2%
+
+TSLA:
+  Logistic Regression:
+    • Stocks-only:    Acc=0.560, F1=0.553
+    • Stocks+News:    Acc=0.560, F1=0.553
+    • Improvement:    Acc=+0.0%, F1=+0.0%
+  Random Forest:
+    • Stocks-only:    Acc=0.476, F1=0.460
+    • Stocks+News:    Acc=0.489, F1=0.476
+    • Improvement:    Acc=+1.3%, F1=+1.6%
+  Gradient Boosting:
+    • Stocks-only:    Acc=0.516, F1=0.488
+    • Stocks+News:    Acc=0.524, F1=0.500
+    • Improvement:    Acc=+0.9%, F1=+1.2%
+
+
+KEY FINDINGS:
+----------------------------------------
+⚠️ Models perform similarly to random guessing
+⚠️ News data provides marginal improvement
+
+CONCLUSION:
+----------------------------------------
+This clean experiment successfully isolates the effect of news data.
+The results show whether financial news sentiment and volume
+provide additional predictive power beyond stock price data alone.

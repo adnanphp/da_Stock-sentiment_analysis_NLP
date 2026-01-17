@@ -1,0 +1,182 @@
+@startuml Financial Sentiment Analysis ERD
+
+!define ENTITY class
+!define PRIMARY_KEY (PK) '<color:red><&key></color>
+!define FOREIGN_KEY (FK) '<color:blue><&key></color>
+!define WEAK_ENTITY class << (W,#FFAAAA) >>
+!define STRONG_ENTITY class << (S,#AAFFAA) >>
+
+hide methods
+hide stereotypes
+
+' === ENTITIES DEFINITION ===
+
+STRONG_ENTITY Stock_Data {
+  PRIMARY_KEY date: DATE
+  --
+  ticker: VARCHAR(10)
+  open_price: DECIMAL(10,2)
+  high_price: DECIMAL(10,2)
+  low_price: DECIMAL(10,2)
+  close_price: DECIMAL(10,2)
+  volume: BIGINT
+  adjusted_close: DECIMAL(10,2)
+}
+
+WEAK_ENTITY News_Articles {
+  PRIMARY_KEY article_id: INTEGER
+  --
+  FOREIGN_KEY publication_date: DATE
+  source: VARCHAR(100)
+  title: VARCHAR(500)
+  content: TEXT
+  url: VARCHAR(500)
+  author: VARCHAR(100)
+  sentiment_score: DECIMAL(3,2)
+  category: VARCHAR(50)
+}
+
+WEAK_ENTITY Social_Media_Posts {
+  PRIMARY_KEY post_id: VARCHAR(50)
+  --
+  FOREIGN_KEY post_date: DATE
+  platform: VARCHAR(20)
+  username: VARCHAR(100)
+  content: TEXT
+  upvotes: INTEGER
+  comments: INTEGER
+  sentiment_score: DECIMAL(3,2)
+  topic: VARCHAR(100)
+}
+
+STRONG_ENTITY Technical_Indicators {
+  PRIMARY_KEY indicator_id: INTEGER
+  --
+  FOREIGN_KEY calculation_date: DATE
+  sma_20: DECIMAL(10,2)
+  sma_50: DECIMAL(10,2)
+  rsi_14: DECIMAL(5,2)
+  macd: DECIMAL(10,2)
+  bollinger_upper: DECIMAL(10,2)
+  bollinger_lower: DECIMAL(10,2)
+  volatility_20d: DECIMAL(5,2)
+}
+
+STRONG_ENTITY Sentiment_Aggregates {
+  PRIMARY_KEY aggregate_id: INTEGER
+  --
+  FOREIGN_KEY aggregate_date: DATE
+  avg_news_sentiment: DECIMAL(3,2)
+  avg_social_sentiment: DECIMAL(3,2)
+  news_volume: INTEGER
+  social_volume: INTEGER
+  sentiment_variance: DECIMAL(4,3)
+  extreme_sentiment_flag: BOOLEAN
+}
+
+STRONG_ENTITY Target_Variable {
+  PRIMARY_KEY target_id: INTEGER
+  --
+  FOREIGN_KEY prediction_date: DATE
+  price_movement: BOOLEAN
+  next_day_return: DECIMAL(6,3)
+  movement_magnitude: DECIMAL(6,3)
+  volatility_class: VARCHAR(20)
+}
+
+' === RELATIONSHIPS ===
+
+Stock_Data ||--o{ News_Articles : "has"
+Stock_Data ||--o{ Social_Media_Posts : "generates"
+Stock_Data ||--|| Technical_Indicators : "calculates"
+Stock_Data ||--|| Sentiment_Aggregates : "aggregates"
+Stock_Data }|--|| Target_Variable : "predicts"
+
+News_Articles }|--|| Sentiment_Aggregates : "contributes_to"
+Social_Media_Posts }|--|| Sentiment_Aggregates : "contributes_to"
+
+' === RELATIONSHIP CONSTRAINTS AND CARDINALITY ===
+
+' Stock_Data to News_Articles (1:N)
+Stock_Data ||--o{ News_Articles : "date = publication_date"
+
+' Stock_Data to Social_Media_Posts (1:N) 
+Stock_Data ||--o{ Social_Media_Posts : "date = post_date"
+
+' Stock_Data to Technical_Indicators (1:1)
+Stock_Data ||--|| Technical_Indicators : "date = calculation_date"
+
+' Stock_Data to Sentiment_Aggregates (1:1)
+Stock_Data ||--|| Sentiment_Aggregates : "date = aggregate_date"
+
+' Stock_Data to Target_Variable (1:1)
+Stock_Data }|--|| Target_Variable : "date = prediction_date"
+
+' Weak entity relationships with identifying relationships
+News_Articles }|--|| Sentiment_Aggregates : "aggregates\n(partial key)"
+Social_Media_Posts }|--|| Sentiment_Aggregates : "aggregates\n(partial key)"
+
+' === CONSTRAINTS AND NOTES ===
+
+note top of Stock_Data
+  **Constraints:**
+  - Primary Key: date + ticker
+  - Check: high_price >= low_price
+  - Check: volume >= 0
+  - Foreign Key constraints on all
+    related entities
+end note
+
+note right of News_Articles
+  **Weak Entity Constraints:**
+  - Existence depends on Stock_Data
+  - Partial key: article_id
+  - Identifying owner: Stock_Data
+  - Referential integrity: CASCADE
+end note
+
+note left of Technical_Indicators
+  **Derived Entity:**
+  - All attributes calculated from
+    Stock_Data
+  - Functional dependency on date
+  - No modification operations
+end note
+
+' === ATTRIBUTE CONSTRAINTS ===
+
+note bottom of Sentiment_Aggregates
+  **Domain Constraints:**
+  - avg_news_sentiment: -1.0 to +1.0
+  - sentiment_variance: >= 0
+  - volumes: >= 0
+  - extreme_sentiment_flag: boolean
+end note
+
+note right of Target_Variable
+  **Business Rules:**
+  - price_movement: 1=Up, 0=Down
+  - next_day_return: percentage
+  - magnitude: absolute value
+  - volatility_class: Low/Med/High
+end note
+
+' === INTEGRITY CONSTRAINTS ===
+
+class Integrity_Constraints {
+  **Referential Integrity:**
+  - All FKs reference existing PKs
+  - CASCADE on Stock_Data deletion
+  - SET NULL on optional relations
+  
+  **Entity Integrity:**
+  - No nulls in PK attributes
+  - Unique constraints on PKs
+  
+  **Domain Integrity:**
+  - Valid date ranges
+  - Sentiment score bounds
+  - Price positive values
+}
+
+@enduml

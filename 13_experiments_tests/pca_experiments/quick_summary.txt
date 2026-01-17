@@ -1,0 +1,26 @@
+================================================================================
+PCA & t-SNE ANALYSIS - QUICK SUMMARY
+================================================================================
+
+ORIGINAL DATA:
+  Samples: 909
+  Features: 1795
+  Memory: 12.45 MB
+
+PCA RESULTS:
+  Reduced to: 35 components
+  Variance explained: 0.951
+  Components for 95% variance: 35
+
+TOP 5 FEATURES (by PC1 loading):
+  1. EMA_50: 0.0704
+  2. High_rolling_max_10: 0.0702
+  3. SMA_50: 0.0697
+  4. SMA_50_scaled: 0.0697
+  5. High_rolling_max_20: 0.0697
+
+RECOMMENDATIONS:
+  1. Use 35 PCA components for modeling
+  2. This reduces features from 1795 to 35
+  3. That's a 98.1% reduction!
+  4. Expected model improvement: Faster training, reduced overfitting
