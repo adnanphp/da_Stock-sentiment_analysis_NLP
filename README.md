@@ -88,68 +88,46 @@ The project is designed as a complete workflow from **data collection → prepro
 
 ## 📁 Project Structure
 
-```text
-financial-prediction-system/
-│
-├── 01_data_collection/
-│   ├── data_collector.py
-│   ├── reddit_collector.py
-│   ├── news_collector.py
-│   ├── stock_data_collector.py
-│   └── market_indicator_collector.py
-│
-├── 02_data_processing/
-│   ├── datetime_standardizer.py
-│   ├── data_type_converter.py
-│   ├── missing_value_imputer.py
-│   ├── data_quality_checker_fixed.py
-│   └── text_preprocessor.py
-│
-├── 03_feature_engineering/
-│   ├── technical_indicators.py
-│   ├── sentiment_analyzer.py
-│   ├── feature_selector.py
-│   ├── fixed_outlier_treatment.py
-│   └── normalization_pipeline.py
-│
-├── 04_ml_modeling/
-│   ├── pca_enhanced_modeling_pipeline_fixed_v1.py
-│   ├── hyperparameter_tuning.py
-│   └── ...
-│
-├── 05_deep_learning/
-│   ├── deep_learning_pipeline.py
-│   ├── lstm_model.py
-│   ├── cnn_financial.py
-│   └── ...
-│
-├── 06_dimensionality_reduction/
-│   └── pca_tsne_analysis.py
-│
-├── 07_ensemble_methods/
-│   └── ensemble_modeling.py
-│
-├── 08_backtesting/
-│   ├── backtesting_framework.py
-│   ├── trading_simulation.py
-│   ├── performance_metrics.py
-│   └── risk_analysis.py
-│
-├── 09_production/
-│   ├── model_serializer.py
-│   ├── prediction_service.py
-│   ├── monitoring_dashboard.py
-│   └── retraining_pipeline.py
-│
-├── 10_visualization/
-│   └── ...
-│
-├── requirements.txt
-├── main.py
-└── README.md
-```
+Every stage is a top-level folder with its own README documenting what
+it contains, what its inputs and outputs are, and how it connects to the
+rest of the pipeline.
+
+| # | Stage | What it does |
+| --- | --- | --- |
+| [00](00_ER-Diagram/) | ER Diagram | Data model: entities, attributes, relationships |
+| [01](01_data_collection/) | Data Collection | Fetches raw data from stocks, news, Reddit, market |
+| [02](02_data_processing/) | Data Processing | Cleans, types, imputes, and preprocesses text |
+| [03](03_feature_engineering/) | Feature Engineering | Generates technical indicators + sentiment features |
+| [04](04_outlier_management/) | Outlier Management | IQR / Z-score / winsorization |
+| [05](05_data_scaling_normalization/) | Scaling | StandardScaler, MinMax, Robust |
+| [06](06_integration_pipeline/) | Integration | Joins stocks + news + Reddit into one dataset |
+| [07](07_model_training/) | Model Training | Traditional ML, deep learning, ensembles, PCA |
+| [08](08_model_evaluation/) | Model Evaluation | Metrics, leakage checks, realistic verification |
+| [09](09_backtesting_trading/) | Backtesting | Sharpe, max drawdown, win rate vs. Buy & Hold |
+| [10](10_production_deployment/) | Production Scaffolding | Prediction API, serialization, monitoring |
+| [11](11_visualization_analysis/) | Visualization | Analysis notebooks and dashboards |
+| [12](12_config_utilities/) | Config | Shared configuration |
+| [13](13_experiments_tests/) | Experiments | Model runs, comparison plots, outputs |
+| [14](14_data_storage/) | Data Storage | Integrated datasets (gitignored) |
+| [15](15_model_storage/) | Model Storage | Trained models (gitignored) |
+| [16](16_reports_results/) | Reports | Classification reports, metric summaries |
+| [17](17_scripts_executables/) | Runners | Top-level entry points |
+| [18](18_documentation/) | Documentation | Secondary docs, requirements |
+| [20](20_images/) | Images | Curated visualization gallery |
+
+### Repository conventions
+
+- **`legacy/` subfolders:** several stages contain a `legacy/` folder
+  with earlier iterations of a script. These are preserved for
+  reference but are not part of the current pipeline.
+- **Gitignored:** data (`*.csv`, `*.parquet`), models (`*.h5`, `*.pkl`,
+  `*.joblib`), logs (`*.log`, `events.out.tfevents.*`), API keys
+  (`.env`).
+- **Per-stage READMEs:** every stage folder contains a `README.md`
+  explaining its role, files, inputs, and outputs.
 
 ---
+
 
 # 🔄 Pipeline
 
@@ -453,65 +431,16 @@ ALPHA_VANTAGE_API_KEY = "your_alphavantage_key"
 
 # ⚡ Quick Start
 
-## Full Pipeline
+Individual stages are runnable via scripts at the top of each stage folder.
+For a full pipeline run:
 
-```bash
-python main.py
-```
+    python 17_scripts_executables/main.py
 
-## Data Collection
+See each stage's README (for example, [07_model_training/](07_model_training/))
+for the specific scripts available in that stage.
 
-```bash
-python 01_data_collection/data_collector.py
-```
-
-## Data Processing
-
-```bash
-python 02_data_processing/datetime_standardizer.py
-python 02_data_processing/data_type_converter.py
-python 02_data_processing/missing_value_imputer.py
-python 02_data_processing/data_quality_checker_fixed.py
-```
-
-## Feature Engineering
-
-```bash
-python 03_feature_engineering/technical_indicators.py
-python 03_feature_engineering/fixed_outlier_treatment.py
-python 03_feature_engineering/normalization_pipeline.py
-```
-
-## PCA / t-SNE
-
-```bash
-python 06_dimensionality_reduction/pca_tsne_analysis.py
-```
-
-## Traditional ML
-
-```bash
-python 04_ml_modeling/pca_enhanced_modeling_pipeline_fixed_v1.py
-```
-
-## Deep Learning
-
-```bash
-python 05_deep_learning/deep_learning_pipeline.py
-```
-
-## Ensemble Models
-
-```bash
-python 07_ensemble_methods/ensemble_modeling.py
-```
-
-## Backtesting
-
-```bash
-python 08_backtesting/backtesting_framework.py
-python 08_backtesting/trading_simulation.py
-```
+For commands that require API credentials (data collection), see the
+[API Configuration](#-api-configuration) section.
 
 ---
 
