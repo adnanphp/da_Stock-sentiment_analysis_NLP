@@ -1,0 +1,35 @@
+name: Lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  syntax-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile all Python files (syntax check)
+        run: |
+          python -m compileall -q \
+            00_ER-Diagram \
+            01_data_collection \
+            02_data_processing \
+            03_feature_engineering \
+            04_outlier_management \
+            05_data_scaling_normalization \
+            06_integration_pipeline \
+            07_model_training \
+            08_model_evaluation \
+            09_backtesting_trading
+
+      - name: Check .gitignore excludes data and models
+        run: |
+          ! git ls-files | grep -E '\.(csv|parquet|h5|pkl|joblib)$' || (echo "Data/model files tracked in git!" && exit 1)
