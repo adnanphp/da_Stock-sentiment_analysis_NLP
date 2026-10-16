@@ -431,47 +431,19 @@ ALPHA_VANTAGE_API_KEY = "your_alphavantage_key"
 
 # ⚡ Quick Start
 
-## Full Pipeline
+Individual stages are runnable via scripts at the top of each stage folder.
+For a full pipeline run:
 
-```bash
-python 17_scripts_executables/main.py
-Data Collection
-bash
-python 01_data_collection/data_collector.py
-Requires API keys — see the API Configuration section.
+    python 17_scripts_executables/main.py
 
-Data Processing
-bash
-python 02_data_processing/datetime_handling/datetime_standardizer.py
-python 02_data_processing/data_types/data_type_converter.py
-python 02_data_processing/missing_values/missing_value_imputer.py
-python 02_data_processing/data_quality/data_quality_checker.py
-Feature Engineering
-bash
-python 03_feature_engineering/technical_indicators.py
-python 03_feature_engineering/feature_engineer.py
-python 04_outlier_management/outlier_pipeline.py
-python 05_data_scaling_normalization/normalization_pipeline.py
-Integration
-bash
-python 06_integration_pipeline/presentation_integration.py
-PCA / t-SNE
-bash
-python 07_model_training/pca_analysis/pca_tsne_analysis.py
-Traditional ML
-bash
-python 07_model_training/classification_models/train_classification_models.py
-python 07_model_training/classification_models/train_regression_models.py
-Deep Learning
-bash
-python 07_model_training/deep_learning/deep_learning_pipeline.py
-Model Evaluation
-bash
-python 08_model_evaluation/check_data_leakage.py
-python 08_model_evaluation/realistic_verification.py
-Backtesting
-bash
-python 09_backtesting_trading/backtesting_framework.py
+See each stage's README (for example, [07_model_training/](07_model_training/))
+for the specific scripts available in that stage.
+
+For commands that require API credentials (data collection), see the
+[API Configuration](#-api-configuration) section.
+
+---
+
 # 📊 Visualization Gallery
 
 ## PCA Analysis
