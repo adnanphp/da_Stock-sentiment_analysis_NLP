@@ -21,7 +21,6 @@ venv/
 # Model artifacts
 models/
 checkpoints/
-*.h5
 *.pt
 *.pth
 
