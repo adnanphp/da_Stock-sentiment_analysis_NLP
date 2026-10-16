@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.py~
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files (regeneratable or too large)
+*.csv
+*.parquet
+*.feather
+*.h5
+*.pkl
+*.joblib
+
+# Model artifacts
+models/
+checkpoints/
+*.h5
+*.pt
+*.pth
+
+# Tensorboard logs
+tensorboard_logs/
+events.out.tfevents.*
+*.tfevents.*
+
+# Editor backups
+*~
+*.md~
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local
+.env
+.env.local
