@@ -48,3 +48,5 @@ Thumbs.db
 # Local
 .env
 .env.local
+*.bak
+*.bak2
