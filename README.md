@@ -7,6 +7,7 @@
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-Deep%20Learning-orange)](https://www.tensorflow.org/)
 [![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED)](https://www.docker.com/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Lint](https://github.com/adnanphp/da_Stock-sentiment_analysis_NLP/actions/workflows/lint.yml/badge.svg)](https://github.com/adnanphp/da_Stock-sentiment_analysis_NLP/actions/workflows/lint.yml)
 
 > **An end-to-end financial machine learning pipeline combining stock prices, technical indicators, news sentiment, Reddit sentiment, and market indicators to study stock movement and market regimes.**
 
